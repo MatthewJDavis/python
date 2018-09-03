@@ -11,5 +11,4 @@ pipeline {
             sh 'python3 jenkins-python-example/hello.py'
         }
     }   
-    }
 }
