@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+    stages {
+         stage('Run python script'){
+        steps{
+            git url:'https://github.com/MatthewJDavis/python.git'
+            sh 'python3 jenkins-python-example/hello.py'
+        }
+    }   
+    }
+}
