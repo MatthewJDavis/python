@@ -8,6 +8,8 @@ pipeline {
         steps{
           sh 'pwd'
           sh 'ls -l'
+          sh 'rm -r'
+          sh 'ls -l'
         }
       }
       stage('Checkout from git') {
