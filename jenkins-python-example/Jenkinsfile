@@ -4,15 +4,21 @@ pipeline {
       ansiColor('gnome-terminal')
     }
     stages {
-        stage('Checkout from git') {
-          steps {
-            sh 'python3 jenkins-python-example/hello.py'
-          }
+      stage('Clean out workspace'){
+        steps{
+          sh 'pwd'
+          sh 'ls -l'
         }
-        stage('Run python script') {
-          steps {
-            sh 'python3 jenkins-python-example/hello.py'
-          }
+      }
+      stage('Checkout from git') {
+        steps {
+          git url:'https://github.com/MatthewJDavis/python.git'
         }
+      }
+      stage('Run python script') {
+        steps {
+          sh 'python3 jenkins-python-example/hello.py'
+        }
+      }
     }   
 }
