@@ -5,14 +5,14 @@ pipeline {
     }
     stages {
         stage('Checkout from git') {
-          step {
+          steps {
             sh 'python3 jenkins-python-example/hello.py'
           }
         }
         stage('Run python script') {
-            step {
-              sh 'python3 jenkins-python-example/hello.py'
-            }
+          steps {
+            sh 'python3 jenkins-python-example/hello.py'
+          }
         }
     }   
 }
