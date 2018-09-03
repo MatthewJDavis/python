@@ -8,7 +8,7 @@ pipeline {
         steps{
           sh 'pwd'
           sh 'ls -l'
-          sh 'rm -r'
+          sh 'rm -r *'
           sh 'ls -l'
         }
       }
