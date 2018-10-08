@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 #check for files with no owners
+#create a file then sudo chmod 9999 test
 import os
 
 uidset = set()
