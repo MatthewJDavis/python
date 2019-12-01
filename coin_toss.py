@@ -26,10 +26,13 @@ def most_in_a_row(item_list):
             count = 1
     return current_item, highest_count
 
-
 if __name__ == '__main__':
     outcome = []
     for i in range (1000):
         outcome.append(coin_toss())
     print(outcome)
     print(most_in_a_row(outcome))
+    print('Total Tails {}'.format(outcome.count('Tails')))
+    print('Total Heads {}'.format(outcome.count('Heads')))
+
+
