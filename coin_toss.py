@@ -1,4 +1,5 @@
 import random
+import sys
 
 def coin_toss():
     """Simulate a random coin toss with the outcome being heads or tails"""
@@ -58,13 +59,21 @@ def most_one_side_in_a_row(item_list):
 
     return max_heads_count, max_tails_count
 
-if __name__ == '__main__':
+def main():
     outcome = []
-    for i in range (100000):
+    if len(sys.argv) > 1:
+        number_to_toss = sys.argv[1]
+    else:
+        number_to_toss = 10
+    for i in range (int(number_to_toss)):
         outcome.append(coin_toss())
-    print(outcome)
+    print(outcome)  
+    print('Coin was tossed {} times'.format(len(outcome)))
     print('Highest in a row: {} '.format(most_in_a_row(outcome)))
     print('Total Tails {}'.format(outcome.count('Tails')))
     print('Total Heads {}'.format(outcome.count('Heads')))
     a = most_one_side_in_a_row(outcome)
     print('Most Heads in a row: {}\nMost Tails in a row: {} '.format(a[0], a[1]))
+
+if __name__ == '__main__':
+    main()
