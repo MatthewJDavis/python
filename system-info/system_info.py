@@ -1,5 +1,13 @@
+#!/usr/bin/python3
 import platform
 
-system = platform.system()
+def system_info():
 
-print('The system is: {}'.format(system))
+    system = platform.system()
+    print('The system is: {}'.format(system))
+
+def main():
+    print('running main')
+
+if __name__ == '__main__':
+    system_info()
