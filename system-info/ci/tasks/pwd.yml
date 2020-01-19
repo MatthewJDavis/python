@@ -7,6 +7,6 @@ image_resource:
     repository: python
     tag: 3.7.6-slim-buster
 inputs:
-- name: system-info
+- name: source-code
 run:
   path: pwd
