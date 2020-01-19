@@ -3,16 +3,13 @@ import platform, json
 
 def system_info():
 
-    system = platform.system()
-    architecture = platform.machine()
-    print('The system is: {}'.format(system))
-    print('The architecture is: {}'.format(architecture))
-    print('Processor:{}'.format(platform.processor()))
-
     info = {}
+    info['system'] = platform.system()
     info['processor'] = platform.processor()
     info['system-name'] = platform.node()
-
+    info['system-architecture'] = platform.architecture()
+    info['system-distribution'] = platform.dist()
+    info['system-python-version'] = platform.python_version()
     return json.dumps(info)
 
 def main():
