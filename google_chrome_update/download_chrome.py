@@ -28,12 +28,12 @@ def get_chrome(directory):
 
 if __name__ == '__main__':
     print(get_version())
+    latest = get_version()
+    version = latest.replace('.', '-')
+    os.mkdir(version)
 
-latest = get_version()
-version = latest.replace('.', '-')
-os.mkdir(version)
+    get_chrome(version)
 
-get_chrome(version)
 
 # code to upload to artifactory
 
