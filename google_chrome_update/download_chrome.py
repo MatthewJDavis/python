@@ -45,3 +45,5 @@ file_location = '{}/googlechrome.msi'.format(version)
 
 with open(file_location, 'rb') as f:
     requests.put(upload_location, data=f, headers=headers)
+
+# todo checksum: https://stackoverflow.com/questions/46703183/fix-checksum-in-artifactory-when-uploading-file-through-rest-api/52067221
