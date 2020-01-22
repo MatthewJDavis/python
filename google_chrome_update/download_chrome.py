@@ -34,3 +34,14 @@ version = latest.replace('.', '-')
 os.mkdir(version)
 
 get_chrome(version)
+
+# code to upload to artifactory
+
+token = os.environ['TOKEN']
+
+headers = {'X-JFrog-Art-Api': '{}'.format(token)}
+upload_location = 'http://localhost/artifactory/generic-local/google/chrome/{}/{}'.format(version, 'chrome.msi')
+file_location = '{}/googlechrome.msi'.format(version)
+
+with open(file_location, 'rb') as f:
+    requests.put(upload_location, data=f, headers=headers)
