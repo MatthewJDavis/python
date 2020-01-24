@@ -1,6 +1,6 @@
 # Proof of concept to download google chrome 64 bit msi and latest version number. To upload to package management system.
 
-import requests, os
+import requests, os, hashlib
 
 # get latest version number
 def get_version():
@@ -15,7 +15,6 @@ def get_version():
 def get_chrome(directory):
     # download msi
     url = 'https://dl.google.com/tag/s/dl/chrome/install/googlechromestandaloneenterprise64.msi'
-
 
     res = requests.get(url)
     res.raise_for_status()
@@ -35,11 +34,19 @@ if __name__ == '__main__':
     get_chrome(version)
 
 
-# code to upload to artifactory
+# code to upload to artifactory todo - functions
+
+def get_sha1(file):
+    with open(file,"rb") as f:
+        bytes = f.read() # read entire file as bytes
+        sha1 = hashlib.sha1(bytes).hexdigest();
+        return sha1
 
 token = os.environ['TOKEN']
+sha1 = get_sha1('chrome.msi')
 
-headers = {'X-JFrog-Art-Api': '{}'.format(token)}
+headers = {'X-JFrog-Art-Api': '{}'.format(token),
+            'X-Checksum-Sha1': sha1}
 upload_location = 'http://localhost/artifactory/generic-local/google/chrome/{}/{}'.format(version, 'chrome.msi')
 file_location = '{}/googlechrome.msi'.format(version)
 
@@ -47,3 +54,4 @@ with open(file_location, 'rb') as f:
     requests.put(upload_location, data=f, headers=headers)
 
 # todo checksum: https://stackoverflow.com/questions/46703183/fix-checksum-in-artifactory-when-uploading-file-through-rest-api/52067221
+
