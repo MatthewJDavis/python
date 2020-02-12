@@ -1,4 +1,5 @@
 def main():
+    ''' main function '''
     print("Hello")
 
 
