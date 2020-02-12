@@ -1,0 +1,15 @@
+---
+resources:
+- name: source-code
+  type: git
+  source:
+    uri: https://github.com/MatthewJDavis/python.git
+    branch: master
+
+jobs:
+- name: remove-trailing-whitespace
+  plan:
+  - get: source-code
+    trigger: true
+  - task: run-system-info-program
+    file: source-code/trailing_whitespace/ci/tasks/lint.yml
