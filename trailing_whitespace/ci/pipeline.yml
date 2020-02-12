@@ -11,5 +11,5 @@ jobs:
   plan:
   - get: source-code
     trigger: true
-  - task: run-system-info-program
+  - task: run-pylint
     file: source-code/trailing_whitespace/ci/tasks/lint.yml
