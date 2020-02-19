@@ -1,0 +1,15 @@
+---
+resources:
+- name: source-code
+  type: git
+  source:
+    uri: https://github.com/MatthewJDavis/python.git
+    branch: master
+
+jobs:
+- name: lint-dns-scripts
+  plan:
+  - get: source-code
+    trigger: true
+  - task: run-pylint
+    file: source-code/dns/ci/tasks/lint.yml
