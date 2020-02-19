@@ -13,3 +13,9 @@ jobs:
     trigger: true
   - task: run-pylint
     file: source-code/dns/ci/tasks/lint.yml
+- name: run-dns-resolve
+  plan:
+  - get: source-code
+    trigger: true
+  - task: run-dns
+    file: source-code/dns/ci/tasks/run.yml

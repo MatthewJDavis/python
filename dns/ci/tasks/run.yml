@@ -12,5 +12,5 @@ run:
   args:
   - -exec
   - |
-    pip install ./source-code/dns/requirements.py
+    pip install ./source-code/dns/requirements.txt
     python ./source-code/dns/resolve.py
