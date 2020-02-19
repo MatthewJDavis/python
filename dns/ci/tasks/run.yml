@@ -13,4 +13,4 @@ run:
   - -exec
   - |
     pip install ./source-code/dns/requirements.py
-    pylint ./source-code/dns/resolve.py
+    python ./source-code/dns/resolve.py
