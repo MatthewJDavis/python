@@ -13,4 +13,4 @@ run:
   - -exec
   - |
     pip install -r ./source-code/dns/requirements.txt
-    python ./source-code/dns/resolve.py
+    python ./source-code/dns/resolve.py 'matthewdavis111.com'
