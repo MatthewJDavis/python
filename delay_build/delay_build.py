@@ -11,4 +11,4 @@ for char in doubled:
 
 finish = time.time()
 
-print(f'Build took {finish - start:.2} to complete.')
+print(f'Build took {finish - start:.4} to complete.')
