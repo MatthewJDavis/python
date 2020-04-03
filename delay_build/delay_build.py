@@ -5,7 +5,7 @@ text = 'this is a bit of a long line of text and would make the linter very very
 doubled = text * 2
 start = time.time()
 
-for char in text:
+for char in doubled:
     print(char)
     time.sleep(1)
 
