@@ -13,7 +13,7 @@ def system_info():
     return json.dumps(info)
 
 def main():
-    print('running main')
+    print(system_info())
 
 if __name__ == '__main__':
-    print(system_info())
+    main()
