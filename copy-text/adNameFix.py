@@ -6,23 +6,19 @@
 import pyperclip
 
 text = pyperclip.paste()
+lines = text.split('\r\n\r\n')
 
-lines = text.split('\r\n')
-samAcctName = []
+def get_names(line_list):
+    names = []
+    for line in line_list:
+        if len(line) > 0:
+            line = line.strip()
+            line = line.replace(' ', '.')
+            line = line.replace('-', '.')
+            line = line.lower()
+            names.append(line)
+    return names
 
-for i in range(len(lines)):
-    if i == len(lines) -1 and len(lines[i]) > 0:
-        print('end of list')
-        lines[i] = "'" + lines[i].replace(' ', '.') + "'" # replace the space with a full stop adds quotes. End of file so we don't need the comma
-        samAcctName.append(lines[i])
-    elif len(lines[i]) > 0:
-        lines[i] = "'" + lines[i].replace(' ', '.') + "'" + ","  # replace the space with a full stop adds quotes and comma to lines
-        samAcctName.append(lines[i])
-    else:
-        print(f'No data found at line: {i}')
-
-text = '\n'.join(samAcctName)
-
+ad_names = get_names(lines)
+text = '\n'.join(ad_names )
 pyperclip.copy(text)
-
-
