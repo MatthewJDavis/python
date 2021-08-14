@@ -16,7 +16,7 @@ def token(token_endpoint, token_headers, token_body):
     try:
         token_response = requests.post(
             url=token_endpoint, headers=token_headers, data=token_body)
-        token_response.raise_for_status  # pylint: disable=pointless-statement
+        token_response.raise_for_status()
         return token_response.json()['access_token']
     except HTTPError as http_err:
         print(f'HTTP error occurred: {http_err}')
@@ -26,7 +26,7 @@ def graph_query(query_url, query_headers):
     """ Send a query to the MS Graph """
     try:
         query_response = requests.get(url=query_url, headers=query_headers)
-        query_response.raise_for_status  # pylint: disable=pointless-statement
+        query_response.raise_for_status()
         return query_response.json()['value'][0]
     except HTTPError as http_err:
         print(f'HTTP error occurred: {http_err}')
