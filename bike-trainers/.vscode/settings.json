@@ -1,0 +1,5 @@
+{
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "python.defaultInterpreterPath": "/home/matt/Documents/python/venvs/selenium/bin/"
+}
