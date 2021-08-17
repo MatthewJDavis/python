@@ -1,7 +1,12 @@
 """ Checks a couple of sites for the current cost of Wahoo direct trainers."""
+import os
 import bs4
 import requests
 from requests import HTTPError
+
+chat_id = os.getenv('CHAT_ID')
+token = os.getenv('TOKEN')
+
 
 CORE_CURRENT_PRICE = 1300
 V5_CURRENT_PRICE = 1800
@@ -43,6 +48,11 @@ def get_price(url, site_id):
     return price
 
 
+def send_telegram(telegram_chat_id, telegram_token, text):
+    """ Send message to telegram via the API """
+    url = f'https://api.telegram.org/bot{telegram_token}/sendMessage?chat_id={telegram_chat_id}&text={text}'  # pylint: disable=line-too-long
+    requests.post(url)
+
 def main():
     """ Main entry point."""
     wh_core_price = get_price(WAHOO_CORE_URL, CORE_ID)
@@ -51,15 +61,25 @@ def main():
     bs_v5_price = get_price(BIKE_SHOP_V5_URL, BIKE_SHOP_ID)
 
     if float(wh_core_price) < CORE_CURRENT_PRICE:
-        print(f"Wahoo price core: {wh_core_price}")
+        pay_load = f"Wahoo price core: {wh_core_price}"
+        print(pay_load)
+        send_telegram(chat_id, token, pay_load)
 
     if float(wh_v5_price) < V5_CURRENT_PRICE:
-        print(f"Wahoo price V5: {wh_v5_price}")
+        pay_load = f"Wahoo price V5: {wh_v5_price}"
+        print(pay_load)
+        send_telegram(chat_id,token, pay_load)
 
     if float(bs_core_price) < CORE_CURRENT_PRICE:
-        print(f"Bike shop price core: {bs_core_price}")
+        pay_load = f"Bike shop price core: {bs_core_price}"
+        print(pay_load)
+        send_telegram(chat_id, token, pay_load)
+
     if float(bs_v5_price) < V5_CURRENT_PRICE:
-        print(f"Bike shop price V5: {bs_v5_price}")
+        pay_load = f"Bike shop price V5: {bs_v5_price}"
+        print(pay_load)
+        send_telegram(chat_id, token, pay_load)
+
 
 if __name__ == "__main__":
     main()
