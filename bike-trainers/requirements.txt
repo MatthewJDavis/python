@@ -1,0 +1,14 @@
+astroid==2.6.6
+beautifulsoup4==4.9.3
+certifi==2021.5.30
+charset-normalizer==2.0.4
+idna==3.2
+isort==5.9.3
+lazy-object-proxy==1.6.0
+mccabe==0.6.1
+pylint==2.9.6
+requests==2.26.0
+soupsieve==2.2.1
+toml==0.10.2
+urllib3==1.26.6
+wrapt==1.12.1
