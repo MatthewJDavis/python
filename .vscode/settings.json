@@ -1,4 +1,6 @@
 {
-  "python.pythonPath": "C:\\Python37\\python.exe",
-  "files.defaultLanguage": "python"
+  "python.pythonPath": "/home/matt/Documents/git/python/copy-text/env/bin",
+  "files.defaultLanguage": "python",
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true
 }
