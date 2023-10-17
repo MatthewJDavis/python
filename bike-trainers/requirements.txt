@@ -10,5 +10,5 @@ pylint==2.9.6
 requests==2.26.0
 soupsieve==2.2.1
 toml==0.10.2
-urllib3==1.26.17
+urllib3==1.26.18
 wrapt==1.12.1
